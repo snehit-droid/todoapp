@@ -15,11 +15,11 @@ function App() {
   }, []);
   //Use Effect
   useEffect(() => {
-    filterHandler(status);
+    filterHandler(status, todos);
     saveLocalTodos(todos);
   }, [todos, status]);  //for this it throws a caution, which shows that to declare the whole 'filterHandler' inside the useEffect 
   //Functions
-  const filterHandler = (status) => {
+  const filterHandler = (status, todos) => {
     switch(status){
       case 'completed':
         setFilteredTodos(todos.filter(todo => todo.completed === true));
